@@ -1,0 +1,72 @@
+{
+	"name":"Rahk'tul",
+	"alignment":"neutral",
+	"age":"26",
+	"gender":"M",
+	"religion":"Ancêtres",
+	"level":11,
+	"xp":123040,
+	"abilities":[
+		{"name": "STR", "score":18},
+		{"name": "DEX", "score":10},
+		{"name": "CON", "score":18},
+		{"name": "INT", "score":12},
+		{"name": "WIS", "score":10},
+		{"name": "CHA", "score":14}
+	],
+	"saves":[{"name": "Reflexes", "score":3},{"name": "Vigueur", "score":11},{"name": "Volonté", "score":7}],
+	"AC":28,
+	"life":154,
+	"lifeRegen":19,
+	"mind":17,
+	"mindRegen":6,
+	"init":0,
+	"speed":9,
+	"lift":120,
+	"weight":"",
+	"height":"",
+	"description":"Cool guy",
+	"feats": [
+		{"id":"bullStr", "name": "Force du Taureau", "type": "charac", "description":"STR +2"}
+	],
+	"skills": {
+		"compAcrobatie": 5,
+		"compBluff":1,
+		"compEquilibre":3,
+		"compEscalade":8,
+		"compSaut":9,
+		"compDiscretion":0,
+		"compMouvementSilencieux":1,
+		"compCrochetage":1,
+		"compDesamorcage":2,
+		"compFouille":0,
+		"compContrefacon":0,
+		"compEstimation":4,
+		"compRenseignement":2,
+		"compEvasion":7,
+		"compMaitriseCordes":5,
+		"compRepresentation":2,
+		"compEscamotage":0,
+		"compDressage":5,
+		"compIntimidation":5,
+		"compEquitation":0,
+		"compNatation":0,
+		"compDiplomatie":0,
+		"compPsycho":2,
+		"compDeguisement":1,
+		"compDetection":3
+	},
+	"weapons":[
+		{
+			"id":"w1", 
+			"name": "Masse d'arme de Forge-Acier", 
+			"material": "adamantium", 
+			"damage": "1d8", 
+			"critical": "x2",
+			"range": "",
+			"size": "M",
+			"type": "contondant",
+			"special": "Inertie (Attaque en puissance ++), Vapeur (+1d6 deg)"	
+		}
+	]
+}

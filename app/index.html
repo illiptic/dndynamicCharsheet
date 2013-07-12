@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en" ng-app="charsheet">
+<head>
+  <meta charset="utf-8">
+  <title>Character sheet</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css"/>
+  <script data-main="js/main.js" src="js/lib/require.js"></script>
+</head>
+<body>
+<div id="sheet" class="container_163" ng-controller="characterController" >
+		<div class="grid_85">
+			<div class="grid_85">
+				<p>
+					<span class="title" ng-click="loadCharacter()">Nom:</span><span contentEditable="true" ng-model="character.name"></span>
+				</p>
+			</div>
+			<div class="grid_55">
+				<p>
+					<span class="title">Alignement:</span><span contentEditable="true" ng-model="character.alignment"></span>
+				</p>
+			</div>
+			<div class="grid_15">
+				<p>
+					<span class="title">Age:</span><span contentEditable="true" ng-model="character.age">XX</span>
+				</p>
+			</div>
+			<div class="grid_15">
+				<p>
+					<span class="title">Genre:</span><span contentEditable="true" ng-model="character.gender">M</span>
+				</p>
+			</div>
+			<div class="grid_55">
+				<p>
+					<span class="title">Religion:</span><span contentEditable="true" ng-model="character.religion">XXX</span>
+				</p>
+			</div>
+			<div class="grid_15">
+					<p>
+						<span class="title">Poids:</span><span contentEditable="true" ng-model="character.weight"></span>
+					</p>
+				</div>
+			<div class="grid_15">
+				<p>
+					<span class="title">Taille:</span><span contentEditable="true" ng-model="character.size"></span>
+				</p>
+			</div>
+
+			<div id="abilities" class="grid_30">
+				<div ng-repeat="ability in character.abilities">
+					<div class="grid_10">
+						<p class="title">{{ability.name}}</p>
+					</div>
+					<div class="grid_10">
+						<p contentEditable="true" ng-model="ability.score" class="numeric"></p>
+					</div>
+					<div class="grid_10">
+						<p ng-model="ability.modifier" class="numeric">{{updateModifier(ability, ability.score)}}</p>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="grid_30">
+				<div ng-repeat="save in character.saves">
+					<div class="grid_20">
+						<p class="title">{{save.name}}</p>
+					</div>
+					<div class="grid_10">
+						<p id="ref" class="numeric">{{save.score}}</p>
+					</div>
+				</div>
+				<div class="grid_20">
+					<p class="title">Initiative</p>
+				</div>
+				<div class="grid_10">
+					<p id="init" class="numeric"></p>
+				</div>
+				<div class="grid_20">
+					<p class="title">Vitesse</p>
+				</div>
+				<div class="grid_10">
+					<p id="speed" class="numeric"></p>
+				</div>
+				<div class="grid_20">
+					<p class="title">Hisser</p>
+				</div>
+				<div class="grid_10">
+					<p id="lift" class="numeric"></p>
+				</div>
+			</div>
+			<div class="grid_25">
+				<div class="grid_25">
+					<p class="title">Niveau</p>
+				</div>
+				<div class="grid_25">
+					<p id="level" class="doubleHeight numeric"></p>
+				</div>
+				<div class="grid_25">
+					<p class="title">Expérience</p>
+				</div>
+				<div class="grid_25">
+					<p id="xp"class="doubleHeight numeric"></p>
+				</div>
+<!-- 				<div class="grid_25"> -->
+<!-- 					<p class="title">CA, damage reduction</p> -->
+<!-- 				</div> -->
+<!-- 				<div class="grid_25"> -->
+<!-- 					<p id="AC" class="doubleHeight"></p> -->
+<!-- 				</div> -->
+			</div>
+		</div>
+		<div class="grid_78">
+			<div class="grid_44">	
+				<div class="grid_44">
+					<p class="tripleHeight">
+						<span class="title">Description:</span><span id="description"></span>
+					</p>
+				</div>
+			</div>
+			<div class="grid_34" >
+				<p id="portrait"></p>
+			</div>
+			<div class="grid_78">
+				<div class="grid_39">
+					<p>Points de vie</p>
+				</div>
+				<div class="grid_39">
+					<p>Mental</p>
+				</div>
+				<div class="grid_25">
+					<div class="grid_15">
+						<p class="title">total</p>
+					</div>
+					<div class="grid_10">
+						<p id="life" class="numeric"></p>
+					</div>
+					<div class="grid_15">
+						<p class="title">récup</p>
+					</div>
+					<div class="grid_10">
+						<p id="lifeRegen" class="numeric"></p>
+					</div>
+				</div>
+				<div class="grid_14">
+					<p id="currentLife" class="doubleHeight"></p>
+				</div>
+				<div class="grid_25">
+					<div class="grid_15">
+						<p class="title">total</p>
+					</div>
+					<div class="grid_10">
+						<p id="mind" class="numeric"></p>
+					</div>
+					<div class="grid_15">
+						<p class="title">récup</p>
+					</div>
+					<div class="grid_10">
+						<p id="mindRegen" class="numeric"></p>
+					</div>
+				</div>
+				<div class="grid_14">
+					<p id="currentMind" class="doubleHeight"></p>
+				</div>
+			</div>
+		</div>
+		<hr class="grid_163" />
+		<div class="grid_40" id="skills">
+			<div ng-repeat="skill in skills | orderBy:'name'">
+				<div class="grid_30">
+					<p class="title">{{skill.name}}</p>
+				</div>
+				<div class="grid_10">
+					<p class="numeric">{{character.skills[skill.id]}}</p>
+				</div>
+			</div>
+		</div>
+		<div class="grid_1 fullHeight vr"></div>
+		<div class="grid_80 fullHeight">
+			<div id="armor">
+				<div class="grid_25">
+					<p class="title">Armure</p>
+				</div>
+				<div class="grid_55">
+					<p id="armorName">Meka-Harnois plein adamantium </p>
+				</div>
+				<div class="grid_25">
+					<p id="" class="tripleHeight">
+						<span class="title">CA</span><span id="totalAC">28</span>
+					</p>
+				</div>
+			</div>
+		
+		</div>
+		
+		<div class="grid_42" id="feats">
+			<div class="grid_32"><p>Dons</p></div>
+			<div class="grid_10"><p>Coût</p></div>
+			<hr class="grid_42" />
+		</div>
+	</div>
+</body>
+</html>

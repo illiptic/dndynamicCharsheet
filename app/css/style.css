@@ -1,0 +1,66 @@
+@import url("grid.css");
+
+
+
+div {
+	min-height: 20px;
+}
+
+div#sheet {
+	/*width: 21.5cm;*/
+	height: 28.5cm;
+	border: 1px solid black;
+	margin: 0;
+}
+
+div p{
+	text-align: left;
+	height: 20px;
+	margin: 0;
+	padding: 1px;
+	border: 1px solid gray;
+}
+
+p.doubleHeight {
+	height: 44px;
+}
+
+p.tripleHeight {
+	height: 68px;
+}
+
+p#portrait {
+	height: 140px;
+}
+
+div span.title{
+	margin-right: 12px;
+}
+
+hr {
+	margin: 0;
+	height: 5px;
+	background-color: grey;
+	border: none;
+}
+
+.vr {
+	background-color: grey;
+}
+
+ul {
+	margin: 0;
+	list-style: none;
+}
+
+.numeric {
+	text-align: right;
+}
+
+.fullHeight {
+	height: 79.5%;
+}
+
+#skills p{
+	font-size: x-small;
+}
