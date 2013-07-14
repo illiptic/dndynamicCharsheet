@@ -49,12 +49,22 @@ define([
 	        restrict: 'E',
 	        // can be in-lined or async loaded by xhr
 	        // or inlined as JS string (using template property)
-	        templateUrl: 'componentTpl.html',
+	        templateUrl: 'templates/inlineEdit.html',
 	        scope: {
 	            model: '=' 
 	        }
 	    };
 	});
 
+	
+	app.directive('focus', function(){
+		return function(scope, element, attr){
+			scope.$watch(attr.focus, function focusAction(value){
+				if(value) {
+					element[0].focus();
+				}
+			});
+		};
+	});
 
 });
