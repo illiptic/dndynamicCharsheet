@@ -1,0 +1,243 @@
+@import url("reset.css");
+@import url("grid.css");
+
+div#sheet {
+	/*width: 21.5cm;*/
+	height: 28.5cm;
+	border: 1px solid black;
+	margin: 0;
+}
+
+div#header {
+	margin-bottom: 10px;
+}
+
+.block {
+	border: 1px solid gray;
+	float: left;
+	width: 100%;
+	height: 100%;
+	margin-bottom: 6px;
+}
+
+div.field {
+	border: 1px solid gray;
+	height: 30px;
+	margin-top: 8px;
+	background-color: white;
+}
+
+div.field.gear {
+	float: left;
+	border: none;
+	background-color: transparent;
+	background-image: url(../img/gear.svg);
+	background-size: cover;
+	margin-top: 0px;
+}
+
+div.field.gear.r {
+	float: right;
+}
+
+div.field.gear.pvregen {
+	position: absolute;
+	top: 28px;
+	left: 141px;
+}
+
+div.field.gear.pvmax {
+	position: absolute;
+	top: 75px;
+	left: 135px;
+}
+
+div.field.gear.mregen {
+	position: absolute;
+	top: 28px;
+	right: 141px;
+}
+
+div.field.gear.mmax {
+	position: absolute;
+	top: 75px;
+	right: 135px;
+}
+
+div.field.gear.sub {
+	margin-left: -5px;
+	margin-top: 20px;
+}
+
+div.field.gear.underlay {
+	position: absolute;
+	left: -9px;
+	z-index: -1;
+	top: -1px;
+}
+
+div.field.gear.underlay.r {
+	right: -9px;
+	left: initial;
+}
+
+div.field.gear span.legend {
+	position: relative;
+	margin: 0px auto;
+	display: table;
+}
+
+div.field.gear.large span.legend {
+	margin-top: 21px;
+}
+
+div.field.gear.medium span.legend {
+	margin-top: 10px;
+}
+
+div.field.gear.small span.legend {
+	margin-top: 6px;
+}
+
+div.field.large {
+	width: 150px;
+	height: 150px;
+}
+
+div.field.medium {
+	width: 75px;
+	height: 75px;
+}
+
+div.field.small {
+	width: 50px;
+	height: 50px;
+}
+
+div.field.tiny {
+	width: 30px;
+	height: 30px;
+}
+
+div.field span.legend {
+	font-size: x-small;
+	display: block;
+	position: absolute;
+	margin-left: 2px;
+}
+
+span.title {
+	margin: 15px 2px;
+	display: inline-block;
+}
+
+div.skills {
+	float: right;
+	font-size: small;
+}
+
+div.skills table {
+	border-collapse:collapse;
+	border: 1px solid gray;
+}
+
+div.skills th {
+	padding: 0;
+	font-size: x-small;
+}
+
+div.skills tbody tr:nth-of-type(odd){
+	background-color: lightgray;
+}
+
+div.skills td {
+	border: 1px solid gray;
+	height: 20px;
+	width: 40px;
+}
+
+div.skills td:FIRST-CHILD {
+	border: none;
+}
+
+div.titles {
+	text-align: center;
+	font-style: italic;
+}
+
+div.titles div:FIRST-CHILD {
+	text-align: left;
+}
+
+div.titles div:FIRST-CHILD span {
+	margin-left: 2px;
+}
+
+div.ability {
+	float: left;
+	margin-bottom: 8px;
+}
+
+div.field.shield {
+	float: left;
+	border: none;
+	background-color: transparent;
+	background-image: url(../img/shield.svg);
+	background-size: cover;
+	margin: 10px 12px 0px;
+	height: 68px;
+	width: 56px;
+}
+
+div.armor .field {
+	margin-top: 2px;
+}
+
+div.armor .title {
+	margin-top: 8px;
+	margin-bottom: 2px;
+}
+
+div.field.armorDesc {
+	height: 80px;
+}
+
+div.field.nomargin {
+	margin: 0px;
+}
+
+div.combatFeats .field {
+	margin-top: 2px;
+}
+
+div.xp {
+	font-size: small;
+}
+
+div.controls, .controls div {
+	float: right;
+}
+
+span.editable {
+	width: 100%;
+	height: 100%;
+	display: block;
+	cursor: text;
+	padding-top: 10px;
+	padding-left: 4px;
+}
+
+inline-edit {
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+	padding-top: 10px;
+	padding-left: 4px;
+}
+
+inline-edit > span {
+	width: 100%;
+	height: 100%;
+	display: block;
+	cursor: text;
+}

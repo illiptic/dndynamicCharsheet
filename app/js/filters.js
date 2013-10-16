@@ -5,12 +5,12 @@ define([
 	'use strict';
 
 	/* Filters */
+	var app = angular.module('charsheet.filters', []);
 	
-	angular.module('charsheet.filters', []).
-	  filter('abilityModifier', function() {
-	    return function(score) {
-	      return Math.floor((score - 10) / 2);
-	    };
-	  });
-
+	app.filter('abilityModifier', function() {
+		return function(score) {
+			return Math.floor((score - 10) / 2);
+		};
+	});
+	
 });

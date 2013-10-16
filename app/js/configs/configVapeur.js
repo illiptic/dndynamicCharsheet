@@ -1,5 +1,25 @@
 define({
 
+	abilities: [
+		{id: 'str', name: 'Force'},
+		{id: 'dex', name: 'Dexterité'},
+		{id: 'con', name: 'Constitution'},
+		{id: 'int', name: 'Intelligence'},
+		{id: 'wis', name: 'Sagesse'},
+		{id: 'cha', name: 'Charisme'}
+	],
+	saves: [
+		{id: 'ref', name: 'Réflexes'},
+		{id: 'fort', name: 'Vigueur'},
+		{id: 'will', name: 'Volonté'}
+	],
+	combat: [
+		{id: 'init', name: 'Initiative'},
+		{id: 'melee', name: 'Corps à corps'},
+		{id: 'range', name: 'Distance'}
+	],
+	
+	
 	feats : [ {
 		id : 'expertiseCombat',
 		name : 'Expertise de combat',
@@ -80,7 +100,7 @@ define({
 		ability : 'for'
 	}, {
 		id : 'compDiscretion',
-		name : 'Discr�tion',
+		name : 'Discrétion',
 		ability : 'dex'
 	}, {
 		id : 'compMouvementSilencieux',
@@ -191,6 +211,41 @@ define({
 		ability : 'int',
 		locked : true
 	}, ],
+	
+//	skills: [
+//        {id: 'compAcrobatie', name: 'Acrobatie', ability: 'dex'},
+//        {id: 'compBluff', name: 'Bluff', ability: 'cha'},
+//        {id: 'compEquilibre', name: 'Equilibre', ability: 'dex'},
+//        {id: 'compEscalade', name: 'Escalade', ability: 'for'},
+//        {id: 'compSaut', name: 'Saut', ability: 'for'},
+//        {id: 'compDiscretion', name: 'Discrétion', ability: 'dex'},
+//        {id: 'compMouvementSilencieux', name: 'Mouvement Silencieux', ability: 'dex'},
+//        {id: 'compCrochetage', name: 'Crochetage', ability: 'dex'},
+//        {id: 'compDesamorcage', name: 'Desamorçage', ability: 'int'},
+//        {id: 'compFouille', name: 'Fouille', ability: 'int'},
+//        {id: 'compContrefacon', name: 'Contrefaçon', ability: 'int'},
+//        {id: 'compEstimation', name: 'Estimation', ability: 'int'},
+//        {id: 'compRenseignement', name: 'Renseignement', ability: 'cha'},
+//        {id: 'compEvasion', name: 'Evasion', ability: 'dex'},
+//        {id: 'compMaitriseCordes', name: 'Maitrise des cordes', ability: 'dex'},
+//        {id: 'compRepresentation', name: 'Représentation', ability: 'cha'},
+//        {id: 'compEscamotage', name: 'Escamotage', ability: 'dex'},
+//        {id: 'compDressage', name: 'Dressage', ability: 'cha'},
+//        {id: 'compIntimidation', name: 'Intimidation', ability: 'cha'},
+//        {id: 'compEquitation', name: 'Equitation', ability: 'dex'},
+//        {id: 'compNatation', name: 'Natation', ability: 'for'},
+//        {id: 'compDiplomatie', name: 'Diplomatie', ability: 'cha'},
+//        {id: 'compPsycho', name: 'Psychologie', ability: 'sag'},
+//        {id: 'compDeguisement', name: 'Deguisement', ability: 'cha'},
+//        {id: 'compDetection', name: 'Detection', ability: 'sag'},
+//        {id: 'compPerceptionAuditive', name: 'Perception Auditive', ability: 'sag'},
+//        {id: 'compConcentration', name: 'Concentration', ability: 'con'},
+//        {id: 'compPremierSecours', name: 'Premiers Secours', ability: 'int'},
+//        {id: 'compConnaissance', name: 'Connaissance', ability: 'int', subskills: true},
+//        {id: 'compAlchimie', name: 'Alchimie', ability: 'int', locked: true},
+//        {id: 'compArtMagie', name: 'Art de la magie', ability: 'int', locked: true},
+//        {id: 'compMekamagie', name: 'Mékamagie', ability: 'int', locked: true},
+//    ],
 
 	abilityMod : function(value) {
 		return Math.floor((value - 10) / 2);

@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en" ng-app="charsheet">
+<head>
+  <meta charset="utf-8">
+  <title>Character sheet</title>
+  <link rel="stylesheet" type="text/css" href="css/style2.css"/>
+  <script data-main="js/main.js" src="js/lib/require.js"></script>
+</head>
+<body ng-controller="characterController">
+<form>
+
+<div class="grid_60 controls">
+	<button ng-click="loadCharacter()">Load char</button>
+</div>
+
+<div id="sheet" class="container_163">
+		<div id="header" class="grid_163">
+			<div class="grid_40">
+				<div class="field gear large">
+					<span class="legend">PV</span>
+				</div>
+				<div class="field gear small pvregen">
+					<span class="legend">regen</span>
+					<inline-edit model="character.pvregen"></inline-edit>
+				</div>
+				<div class="field gear medium pvmax">
+					<span class="legend">max</span>
+				</div>
+			</div>
+			<div class="grid_83">
+				<div class="grid_60">
+					<div class="field">
+						<span class="legend">Nom</span>
+						<inline-edit model="character.name"></inline-edit>
+					</div>
+				</div>
+				
+				<div class="grid_10 push_1">
+					<div class="field">
+						<span class="legend">Niveau</span>
+						<inline-edit model="character.level"></inline-edit>
+					</div>
+				</div>
+				<div class="grid_11 push_2">
+					<div class="field xp">
+						<span class="legend">XP</span>
+						<inline-edit model="character.xp"></inline-edit>
+					</div>
+				</div>
+				
+				<div class="grid_41">
+					<div class="field">
+						<span class="legend">Alignement</span>
+						<inline-edit model="character.alignment"></inline-edit>
+					</div>
+				</div>
+				<div class="grid_41 push_1">
+					<div class="field">
+						<span class="legend">Religion</span>
+						<inline-edit model="character.religion"></inline-edit>
+					</div>
+				</div>
+			</div>
+			<div class="grid_40">
+				<div class="field gear r large">
+					<span class="legend">Mental</span>
+				</div>
+				<div class="field gear r small mregen">
+					<span class="legend">regen</span>
+				</div>
+				<div class="field gear r medium mmax">
+					<span class="legend">max</span>
+				</div>
+			</div>
+		</div>
+		
+		<div id="skills" class="grid_55 skills">
+			<table cellspacing="0">
+				<thead>
+					<tr>
+						<th>Compétence</th>
+						<th>Total</th>
+						<th>mod</th>
+						<th>Maîtrise</th>
+						<th>Divers</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="skill in config.skills | orderBy:'name'">
+						<td class="grid_25">
+							<grid_>{{skill.name}}</grid_>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<div id="abilities" class="grid_40">
+			<div class="block">
+				<div ng-repeat="ability in config.abilities" class="ability">
+					<div class="grid_20">
+						<span class="title">{{ability.name}}</span>
+					</div>
+					<div class="field gear small">
+					</div>
+					<div class="field gear tiny sub">
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="saves" class="grid_66 push_1">
+			<div class="block">
+				<div class="grid_66 titles">
+					<div class="grid_20">
+						<span class="">Sauvegarde</span>
+					</div>
+					<div class="grid_10 push_1">
+					<span class="">Total</span>
+					</div>
+					<div class="grid_8 push_2"><span class="">Base</span></div>
+					<div class="grid_8 push_3"><span class="">Mod</span></div>
+					<div class="grid_8 push_4"><span class="">Divers</span></div>
+				</div>
+				<div ng-repeat="save in config.saves" class="grid_66">
+					<div class="grid_20">
+						<span class="title">{{save.name}}</span>
+					</div>
+					<div class="field gear small push_1">
+					</div>
+					<div class="grid_8 push_2">
+						<div class="field"></div>
+					</div>
+					<div class="grid_8 push_3">
+						<div class="field"></div>
+					</div>
+					<div class="grid_8 push_4">
+						<div class="field"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="combat" class="grid_66 push_1">
+			<div class="block">
+				<div class="grid_66 titles">
+					<div class="grid_20">
+						<span class="">Statistique</span>
+					</div>
+					<div class="grid_15 push_1">
+					<span class="">Total</span>
+					</div>
+					<div class="grid_10 push_2"><span class="">Base</span></div>
+					<div class="grid_8 push_3"><span class="">Mod</span></div>
+					<div class="grid_8 push_4"><span class="">Divers</span></div>
+				</div>
+				<div ng-repeat="stat in config.combat" class="grid_66">
+					<div class="grid_20">
+						<span class="title">{{stat.name}}</span>
+					</div>
+					<div class="grid_15">
+						<div class="field gear small underlay"></div>
+						<div class="field gear small underlay r"></div>
+						<div class="field"></div>
+					</div>
+					<div class="grid_10 push_2">
+						<div class="field"></div>
+					</div>
+					<div class="grid_8 push_3">
+						<div class="field"></div>
+					</div>
+					<div class="grid_8 push_4">
+						<div class="field"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="defense" class="grid_107 armor">
+			<div class="block">
+				<div class="grid_16">
+					<div class="field shield"></div>
+					<div class="grid_15">
+						<div class="grid_10 push_3">
+							<div class="field"></div>
+						</div>
+						<div class="grid_10 push_3">
+							<div class="field"></div>
+						</div>
+						<div class="grid_10 push_3">
+							<div class="field"></div>
+						</div>
+						<div class="grid_10 push_3">
+							<div class="field"></div>
+						</div>
+					</div>
+				</div>
+				<div class="grid_90">
+					<div class="block">
+						<div class="field">
+							<span class="legend">Armure</span>
+						</div>
+						<div class="grid_30">
+							<div class="grid_20">
+								<span class="title">Réduction</span>
+							</div>
+							<div class="grid_10">
+								<div class="field"></div>
+							</div>
+							<div class="grid_20">
+								<span class="title">Pénalité</span>
+							</div>
+							<div class="grid_10">
+								<div class="field"></div>
+							</div>
+							<div class="grid_20">
+								<span class="title">CA</span>
+							</div>
+						</div>
+						<div class="grid_59 push_1">
+							<div class="field armorDesc">
+								<span class="legend">Capacités</span>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				<div class="grid_90">
+					<div class="field nomargin">
+						<span class="legend">Bouclier</span>
+					</div>
+				</div>
+				<div class="grid_10">
+					<div class="field nomargin">
+						<span class="legend">Dex</span>
+					</div>
+				</div>
+				<div class="grid_80">
+					<div class="field nomargin">
+						<span class="legend">Divers</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="armes" class="grid_107">
+			<div class="block" ng-repeat="i in [1,2]">
+				<div class="grid_57">
+					<div class="field">
+						<span class="legend">Arme</span>
+					</div>
+				</div>
+				<div class="grid_20">
+					<div class="field">
+						<span class="legend">Attaque</span>
+					</div>
+				</div>
+				<div class="grid_10">
+					<div class="field">
+						<span class="legend">Dégats</span>
+					</div>
+				</div>
+				<div class="grid_10">
+					<div class="field">
+						<span class="legend">Critique</span>
+					</div>
+				</div>
+				<div class="grid_10">
+					<div class="field">
+						<span class="legend">Taille</span>
+					</div>
+				</div>
+				<div class="grid_77">
+					<div class="field">
+					</div>
+				</div>
+				<div class="grid_15">
+					<div class="field">
+						<span class="legend">Type</span>
+					</div>
+				</div>
+				<div class="grid_15">
+					<div class="field">
+						<span class="legend">Portée</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="combatFeats" class="grid_163 combatFeats">
+			<div class="block">
+				<div class="grid_54" ng-repeat="c in [0,1,2]" >
+					<div class="titles">
+						<div class="grid_47 push_1">
+							<span class="">Don de combat</span>
+						</div>
+						<div class="grid_6">
+							<span class="">Coût</span>
+						</div>
+					</div>
+					<div ng-repeat="r in [0,1,2,3]" class="grid_53 push_1">
+						<div class="grid_47">
+							<div class="field"></div>
+						</div>
+						<div class="field gear tiny"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+
+</body>
+</html>
