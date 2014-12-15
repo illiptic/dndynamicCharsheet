@@ -6,15 +6,21 @@
 	"religion":"Ancêtres",
 	"level":11,
 	"xp":123040,
-	"abilities":[
-		{"name": "STR", "score":18},
-		{"name": "DEX", "score":10},
-		{"name": "CON", "score":18},
-		{"name": "INT", "score":12},
-		{"name": "WIS", "score":10},
-		{"name": "CHA", "score":14}
-	],
-	"saves":[{"name": "Reflexes", "score":3},{"name": "Vigueur", "score":11},{"name": "Volonté", "score":7}],
+	"lpl": 2,
+	"spl": 0,
+	"abilities":{
+		"str":18,
+		"dex":10,
+		"con":18,
+		"int":12,
+		"wis":10,
+		"cha":14
+	},
+	"saves":{
+		"ref": false,
+		"will": true,
+		"fort": true
+	},
 	"AC":28,
 	"life":154,
 	"lifeRegen":19,
@@ -56,17 +62,22 @@
 		"compDeguisement":1,
 		"compDetection":3
 	},
+	"skillGroups": {
+		"fouineur": true,
+		"sentinelle": true,
+		"savant0": true
+	},
 	"weapons":[
 		{
 			"id":"w1", 
-			"name": "Masse d'arme de Forge-Acier", 
+			"name": "Marteau de guerre de Forge-Acier", 
 			"material": "adamantium", 
 			"damage": "1d8", 
-			"critical": "x2",
+			"critical": "x3",
 			"range": "",
 			"size": "M",
 			"type": "contondant",
-			"special": "Inertie (Attaque en puissance ++), Vapeur (+1d6 deg)"	
+			"special": "Inertie (Attaque en puissance * 2), + 3"	
 		}
 	]
 }

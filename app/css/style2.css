@@ -20,6 +20,12 @@ div#header {
 	margin-bottom: 6px;
 }
 
+div.field span {
+	position: relative;
+	margin: 0px auto;
+	display: table;
+}
+
 div.field {
 	border: 1px solid gray;
 	height: 30px;
@@ -97,6 +103,14 @@ div.field.gear.medium span.legend {
 
 div.field.gear.small span.legend {
 	margin-top: 6px;
+}
+
+div.field.gear.small span.centered {
+	margin-top: 18px;
+}
+
+div.field.gear.sub span.centered {
+	margin-top: 7px;
 }
 
 div.field.large {
@@ -231,7 +245,7 @@ inline-edit {
 	display: inline-block;
 	height: 100%;
 	width: 100%;
-	padding-top: 10px;
+	/*padding-top: 10px;*/
 	padding-left: 4px;
 }
 
@@ -240,4 +254,11 @@ inline-edit > span {
 	height: 100%;
 	display: block;
 	cursor: text;
+}
+
+inline-edit > input {
+	margin-top: 10px;
+	border: none;
+	background: transparent;
+	outline: none;
 }

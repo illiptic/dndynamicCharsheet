@@ -1,0 +1,61 @@
+<div class="container_163">
+	<div class="grid_80">
+		<div class="grid_80">
+			<table>
+				<thead></thead>
+				<tbody>
+					<tr>
+						<td><button data-ng-click="loadCharacter()">Load Character</button></td>
+						<td><button data-ng-click="newCharacter()">Clear</button></td>
+						<td><a data-ng-href="data:application/json,{{character}}" target="_blank">Save Character</a></td>
+					</tr>
+					<tr>
+						<td><span>Creation points:</span></td>
+						<td><span>{{config.creationPointsLeft(character)}} / {{config.creationPoints}}</span></td>
+					</tr>
+					
+					<tr data-ng-repeat="ability in config.abilities" class="ability">
+						<td><span class="title">{{ability.name}}</span></td>
+						<td><span>{{character.abilities[ability.id]}}</span></td>
+						<td><span>(Cost: {{config.abilityCost(character.abilities[ability.id])}})</span></td>
+						<td><div data-ill-ability-adjust data-ability="character.abilities[ability.id]" data-callback="abilityBought"></div><td>
+					</tr>
+					<tr data-ng-repeat="save in config.saves">
+						<td>{{save.name}} major?</td>
+						<td><input data-ng-model="character.saves[save.id]" type="checkbox" /></td>
+					</tr>
+					<tr>
+						<td><span class="title">Bonus Life Points / Level</span></td>
+						<td><span>{{character.lpl * 2}}</span></td>
+						<td><div data-ill-per-level-adjust data-bonus="character.lpl" data-max="6" data-min="0"></div></td>
+					</tr>
+					<tr>
+						<td><span class="title">Bonus Skill Points / Level</span></td>
+						<td><span>{{character.spl * 2}}</span></td>
+						<td><div data-ill-per-level-adjust data-bonus="character.spl" data-max="5" data-min="0"></div></td>
+					</tr>
+					<tr>
+						<td><span class="title">Skill Points</span></td>
+						<td><span>{{config.skillPointsLeft(character)}}</span></td>
+						<td><span>{{config.skillPoints(character)}}</span></td>
+					</tr>
+					<tr>
+						<td><span class="title">Skills</span></td>
+						<td><span>{{config.abilityMod(character.abilities.int)+2}}</span></td>
+						<td>
+							<div data-skill-tree></div>
+						</td>
+					</tr>
+					
+				</tbody>
+			</table>
+		</div>
+		
+		<div class="grid_50">
+		</div>
+		
+		<div class="grid_30">
+			
+		</div>
+	</div>
+</div>

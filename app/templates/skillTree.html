@@ -1,0 +1,6 @@
+<div>
+	<div data-ng-repeat="group in config.skillGroups">
+		<span>
+		<input type="checkbox" data-ng-disabled="!character.skillGroups[group.id] && skillGroupCount >= config.abilityMod(character.abilities.int) + 2" data-ng-change="onSkillGroupChange()" data-ng-model="character.skillGroups[group.id]"/>{{group.name}}</span>
+	</div>
+</div>

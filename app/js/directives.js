@@ -8,6 +8,33 @@ define([
 	var app = angular.module('charsheet.directives', []);
 	
 	
+	app.directive('illAbilityAdjust', function(){
+		return {
+			restrict:'A',
+			scope:{
+				ability:'=',
+				callback:'='
+			},
+			template:
+				'<button ng-click="ability = ability + 1;" ng-disabled="ability >= 20">+</button>' + 
+				'<button ng-click="ability = ability - 1;" ng-disabled="ability <= 3">-</button>'
+		};
+	});
+	
+	app.directive('illPerLevelAdjust', function(){
+		return {
+			restrict:'A',
+			scope: {
+				bonus:'=',
+				min:'=',
+				max:'='
+			},
+			template:
+				'<button ng-click="bonus = bonus + 1;" ng-disabled="(max != undefined) && bonus >= max">+</button>' + 
+				'<button ng-click="bonus = bonus - 1;" ng-disabled="(min != undefined) && bonus <= min">-</button>'
+		};
+	});
+	
 //	app.directive('contenteditable', function() {
 //		return {
 //			require : 'ngModel',
@@ -67,4 +94,10 @@ define([
 		};
 	});
 
+	app.directive('skillTree', function(){
+		return {
+			restrict: 'A',
+			templateUrl: 'templates/skillTree.html'
+		};
+	});
 });
